@@ -265,6 +265,9 @@
 		<input type="submit" value="Set default">
 	</fieldset>
 </form>
+
+<a href="http://github.com/tobbe/fika" class="githubribbon"><img src="https://assets1.github.com/img/30f550e0d38ceb6ef5b81500c64d970b7fb0f028?repo=&url=http%3A%2F%2Fs3.amazonaws.com%2Fgithub%2Fribbons%2Fforkme_right_orange_ff7600.png&path=" alt="Fork me on GitHub"></a>
+
 </body>
 </html>
 
