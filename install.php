@@ -8,11 +8,11 @@ $personList = array(
 	array('name' => 'Dennis Davidsson', 'acronym' => 'dda'),
 	array('name' => 'Einar Eriksson', 'acronym' => 'eer'),
 	array('name' => 'Felix Fredriksson', 'acronym' => 'ffr'),
-	array('name' => 'Göran Gottfriedsson', 'acronym' => 'ggo'),
+	array('name' => 'G&ouml;ran Gottfriedsson', 'acronym' => 'ggo'),
 	array('name' => 'Hans Henriksson', 'acronym' => 'hhe'),
 	array('name' => 'Ibsen Ingolfsson', 'acronym' => 'iin'),
 	array('name' => 'Jakob Jansson', 'acronym' => 'jja'),
-	array('name' => 'Krister Kåresson', 'acronym' => 'kkå'),
+	array('name' => 'Krister K&aring;resson', 'acronym' => 'kka'),
 	array('name' => 'Ludwig Larsson', 'acronym' => 'lla')
 );
 file_put_contents('fikalist.dat', serialize($personList));
