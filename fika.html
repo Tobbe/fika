@@ -1,0 +1,289 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<title>Fika list</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<style type="text/css">
+		body {
+			background-color: #fff;
+			font-size: 16px;
+		}
+
+		div.hr {
+			padding: 0;
+			margin: 0;
+			margin-top: .6em;
+			border-top: 1px solid #8080FF;
+			color: #8080FF;
+			background-color: #0f0;
+		}
+
+		div.hr p {
+			margin: 0;
+			margin-top: -0.7em;
+			margin-left: 1em;
+			padding: 0 0.2em;
+			background-color: #fff;
+			float: left;
+		}
+
+		table {
+			clear: left;
+			border-collapse: separate;
+			border-spacing: 0;
+		}
+
+		.mark td {
+			font-size: .8em;
+		}
+
+		.mark, .mark td {
+			margin: 0;
+			padding: 0;
+		}
+
+		tr.currentWeek {
+			color: #000;
+		}
+
+		tr.currentWeek td {
+			border-color: #ff8;
+			border-width: 2px 0;
+			border-style: solid;
+		}
+
+		tr.currentWeek td:first-child {
+			border-width: 2px 0 2px 2px;
+		}
+
+		tr.currentWeek td:first-child img {
+			display: block;
+			margin: 2px;
+			border: 0;
+			background-color: #ff8;
+		}
+
+		tr.currentWeek td.lastTD {
+			border-width: 2px 2px 2px 0;
+		}
+
+		tr.nextFika td {
+			background-color: #8f8;
+			border-top: 2px solid #fff;
+		}
+
+		tr.currentWeek.nextFika td {
+			border-top: 2px solid #ff8;
+		}
+
+		tr.currentWeek img {
+			margin-top: 2px;
+			margin-bottom: -2px;
+		}
+
+		tr.nextFika td.nomark {
+			background-color: #fff;
+		}
+
+		tr.currentWeek td.currentWeek {
+			background-color: #ff8;
+		}
+
+		td a {
+			border: 0px;
+		}
+
+		tr.nextFika td span, tr.nextFika td a {
+			display: block;
+			margin: 2px -1px;
+			background-color: #fff;
+			border: 0;
+			padding-bottom: 1px;
+		}
+
+		tr td a img {
+			margin: 0;
+			padding: 0;
+			border: 0;
+		}
+
+		tr.nextFika td span.fill {
+			margin: -1px;
+		}
+
+		td.nextFika img {
+			display: block;
+			background-color: #8f8;
+			border: 0;
+			margin: 2px;
+			padding-right: 2px;
+		}
+
+		tr.nextFika img.delete, tr.nextFika img.up, tr.nextFika img.down {
+			display: block;
+			margin: 0 0 0 -1px;
+			padding: 2px;
+			background-color: #fff;
+		}
+
+		tr.nextFika td a.lastA {
+			margin: 2px 2px 2px -1px;
+		}
+
+		tr.nextFika td span.week {
+			padding-left: 3px;
+			margin-left: -3px;
+		}
+
+		tr td span.name {
+			padding-right: 10px;
+		}
+	</style>
+	<!--[if lte IE 7]>
+		<style>
+			/* Hack to make IE behave as if "border-collapse: separate; 
+			   border-spacing: 0;" is set */
+			table {
+				border-collapse: collapse;
+			}
+
+			td {
+				position: relative;
+			}
+
+			/* Vertical center */
+			tr.currentWeek img {
+				margin-bottom: 1px;
+			}
+
+			tr.nextFika td span {
+				border-top: 1px solid #fff;
+			}
+
+		</style>
+	<![endif]-->
+</head>
+<body>
+<table>
+<tr>
+	<th></th>
+	<th></th>
+	<th>Week</th>
+	<th>Person</th>
+	<th></th>
+	<th></th>
+	<th></th>
+</tr>
+
+<tr>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td><span class="week">49</span></td>
+	<td><span class="name">Adam Aaronsson (aaa)</span></td>
+	<td><a href="delete.php?acronym=aaa"><img src="delete.gif" alt="Delete person" class="delete"></a></td>
+	<td><a href="index.php?up=aaa"><img src="up.gif" alt="Move up" class="up"></a></td>
+	<td class="lastTD"><a href="index.php?down=aaa" class="lastA"><img src="down.gif" alt="Move down" class="down"></a></td>
+</tr>
+
+<tr>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td><span class="week">50</span></td>
+	<td><span class="name">Boris Bertilsson (bbe)</span></td>
+	<td><a href="delete.php?acronym=bbe"><img src="delete.gif" alt="Delete person" class="delete"></a></td>
+	<td><a href="index.php?up=bbe"><img src="up.gif" alt="Move up" class="up"></a></td>
+	<td class="lastTD"><a href="index.php?down=bbe" class="lastA"><img src="down.gif" alt="Move down" class="down"></a></td>
+</tr>
+
+<tr class="currentWeek nextFika">
+	<td class="currentWeek"><img src="calendar.gif" alt="Current Week"></td>
+	<td class="nextFika"><img src="cupcake.png" alt="Next person to have fika"></td>
+	<td><span class="week">51</span></td>
+	<td><span class="name">Ceasar Carlsson (cca)</span></td>
+	<td><a href="delete.php?acronym=cca"><img src="delete.gif" alt="Delete person" class="delete"></a></td>
+	<td><a href="index.php?up=cca"><img src="up.gif" alt="Move up" class="up"></a></td>
+	<td class="lastTD"><a href="index.php?down=cca" class="lastA"><img src="down.gif" alt="Move down" class="down"></a></td>
+</tr>
+
+<tr>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td><span class="week">52</span></td>
+	<td><span class="name">Dennis Davidsson (dda)</span></td>
+	<td><a href="delete.php?acronym=dda"><img src="delete.gif" alt="Delete person" class="delete"></a></td>
+	<td><a href="index.php?up=dda"><img src="up.gif" alt="Move up" class="up"></a></td>
+	<td class="lastTD"><a href="index.php?down=dda" class="lastA"><img src="down.gif" alt="Move down" class="down"></a></td>
+</tr>
+
+<tr class="mark">	
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td><div class="hr"><p>2011</p></div></td>
+</tr>
+
+<tr>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td><span class="week">1</span></td>
+	<td><span class="name">Einar Eriksson (eer)</span></td>
+	<td><a href="delete.php?acronym=eer"><img src="delete.gif" alt="Delete person" class="delete"></a></td>
+	<td><a href="index.php?up=eer"><img src="up.gif" alt="Move up" class="up"></a></td>
+	<td class="lastTD"><a href="index.php?down=eer" class="lastA"><img src="down.gif" alt="Move down" class="down"></a></td>
+</tr>
+
+<tr>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td><span class="week">2</span></td>
+	<td><span class="name">Felix Fredriksson (ffr)</span></td>
+	<td><a href="delete.php?acronym=ffr"><img src="delete.gif" alt="Delete person" class="delete"></a></td>
+	<td><a href="index.php?up=ffr"><img src="up.gif" alt="Move up" class="up"></a></td>
+	<td class="lastTD"><a href="index.php?down=ffr" class="lastA"><img src="down.gif" alt="Move down" class="down"></a></td>
+</tr>
+
+<tr class="currentWeek ">
+	<td class="currentWeek"><img src="calendar.gif" alt="Current Week"></td>
+	<td class="empty"><span>&nbsp;</span></td>
+	<td><span class="week">3</span></td>
+	<td><span class="name">Göran Gottfriedsson (ggo)</span></td>
+	<td><a href="delete.php?acronym=ggo"><img src="delete.gif" alt="Delete person" class="delete"></a></td>
+	<td><a href="index.php?up=ggo"><img src="up.gif" alt="Move up" class="up"></a></td>
+	<td class="lastTD"><a href="index.php?down=ggo" class="lastA"><img src="down.gif" alt="Move down" class="down"></a></td>
+</tr>
+
+<tr class="nextFika">
+	<td class="nomark">&nbsp;</td>
+	<td class="nextFika"><img src="cupcake.png" alt="Next person to have fika"></td>
+	<td><span class="week">4</span></td>
+	<td><span class="name">Hans Henriksson (hhe)</span></td>
+	<td><a href="delete.php?acronym=hhe"><img src="delete.gif" alt="Delete person" class="delete"></a></td>
+	<td><a href="index.php?up=hhe"><img src="up.gif" alt="Move up" class="up"></a></td>
+	<td class="lastTD"><a href="index.php?down=hhe" class="lastA"><img src="down.gif" alt="Move down" class="down"></a></td>
+</tr>
+
+<tr>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td><span class="week">5</span></td>
+	<td><span class="name">Ibsen Ingolfsson (iin)</span></td>
+	<td><a href="delete.php?acronym=iin"><img src="delete.gif" alt="Delete person" class="delete"></a></td>
+	<td><a href="index.php?up=iin"><img src="up.gif" alt="Move up" class="up"></a></td>
+	<td class="lastTD"><a href="index.php?down=iin" class="lastA"><img src="down.gif" alt="Move down" class="down"></a></td>
+</tr>
+
+<tr>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td><span class="week">6</span></td>
+	<td><span class="name">Joakim Johnsson (jjo)</span></td>
+	<td><a href="delete.php?acronym=jjo"><img src="delete.gif" alt="Delete person" class="delete"></a></td>
+	<td><a href="index.php?up=jjo"><img src="up.gif" alt="Move up" class="up"></a></td>
+	<td class="lastTD"><a href="index.php?down=jjo" class="lastA"><img src="down.gif" alt="Move down" class="down"></a></td>
+</tr>
+</table>
+</body>
+</html>
+
+

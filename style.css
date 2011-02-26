@@ -1,0 +1,153 @@
+body {
+	background-color: #fff;
+	font-size: 16px;
+}
+
+div.hr {
+	position: relative;
+	padding: 0;
+	margin: 0;
+	margin-top: .6em;
+	margin-bottom: .6em;
+	border-top: 1px solid #8080FF;
+	color: #8080FF;
+	background-color: #0f0;
+}
+
+div.hr p {
+	position: absolute;
+	top: -0.7em;
+	left: -1em;
+	margin: 0;
+	padding: 0 2px;
+	background-color: #fff;
+}
+
+table {
+	clear: left;
+	border-collapse: separate;
+	border-spacing: 0;
+}
+
+.mark td {
+	font-size: .8em;
+}
+
+.mark, .mark td {
+	margin: 0;
+	padding: 0;
+}
+
+form {
+	padding-top: 1em;
+}
+
+tr.currentWeek {
+	color: #000;
+}
+
+tr.currentWeek td {
+	border-color: #ff8;
+	border-width: 2px 0;
+	border-style: solid;
+}
+
+tr.currentWeek td:first-child {
+	border-width: 2px 0 2px 2px;
+}
+
+tr.currentWeek td:first-child img {
+	display: block;
+	margin: 2px;
+	border: 0;
+	background-color: #ff8;
+}
+
+tr.currentWeek td.lastTD {
+	border-width: 2px 2px 2px 0;
+}
+
+tr.nextFika td {
+	background-color: #8f8;
+	border-top: 2px solid #fff;
+}
+
+tr.currentWeek.nextFika td {
+	border-top: 2px solid #ff8;
+}
+
+tr.currentWeek img {
+	margin-top: 2px;
+	margin-bottom: -2px;
+}
+
+tr.nextFika td.nomark {
+	background-color: #fff;
+}
+
+tr.currentWeek td.currentWeek {
+	background-color: #ff8;
+}
+
+td a {
+	border: 0px;
+}
+
+tr.nextFika td span, tr.nextFika td a {
+	display: block;
+	margin: 2px -1px;
+	background-color: #fff;
+	border: 0;
+	padding-bottom: 1px;
+}
+
+tr td a img {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+tr.nextFika td span.fill {
+	margin: -1px;
+}
+
+td.nextFika img {
+	display: block;
+	background-color: #8f8;
+	border: 0;
+	margin: 2px;
+	padding-right: 2px;
+}
+
+tr.nextFika img.delete, tr.nextFika img.up, tr.nextFika img.down {
+	display: block;
+	margin: 0 0 0 -1px;
+	padding: 2px; 
+	background-color: #fff;
+}
+
+tr.nextFika td a.lastA {
+	margin: 2px 2px 2px -1px;
+}
+
+tr.nextFika td span.lastSPAN {
+	margin: 2px 2px 2px -1px;
+}
+
+tr.nextFika td span.week {
+	padding-left: 3px;
+	margin-left: -3px;
+}
+
+tr td span.name {
+	padding-right: 10px;
+}
+
+#header img {
+	float: left;
+}
+
+#header h1 {
+	float: left;
+	padding: 0 20px 20px 20px;
+}
