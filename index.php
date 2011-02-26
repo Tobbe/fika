@@ -7,7 +7,17 @@
 
 	$personList = unserialize(file_get_contents('fikalist.dat'));
 	$state = unserialize(file_get_contents('state.dat'));
+	//$state = array('startWeek' => 49, 'startYear' => 2010, 'startPerson' => 'aaa');
+	//file_put_contents('state.dat', serialize($state));
 	$tempMods = unserialize(file_get_contents('tempmods.dat'));
+	/*$tempMods = array(
+		array('acronym' => 'cca', 'where' => 'up', 'when' => new FikaDate(2011, 11)),
+		array('acronym' => 'cca', 'where' => 'up', 'when' => new FikaDate(2011, 10)),
+		array('acronym' => 'aaa', 'where' => 'down', 'when' => new FikaDate(2011, 10)),
+		array('acronym' => 'aaa', 'where' => 'down', 'when' => new FikaDate(2011, 11)),
+		array('acronym' => 'aaa', 'where' => 'down', 'when' => new FikaDate(2011, 12))
+	);*/
+	//file_put_contents('tempmods.dat', serialize($tempMods));
 
 	$personIndex = 0;
 	while ($personList[$personIndex]['acronym'] != $state['startPerson']) {
@@ -96,7 +106,31 @@
 	}
 
 	if (isset($_GET['email'])) {
-		echo 'send email';
+		$email = '';
+		$i = 0;
+
+		while (empty($email) && $i < count($weekPersonMapping)) {
+			$datePerson = $weekPersonMapping[$i];
+			$date = $datePerson['date'];
+			$person = $datePerson['person'];
+			$currentWeek = FikaDate::fromString('now');
+			$nextWeek = FikaDate::fromString('+1 week');
+
+			if ($date == $currentWeek && date('N') < 4) {
+				$email = $person['acronym'];
+			} else if ($date == $nextWeek && date('N') >= 4) {
+				$email = $person['acronym'];
+			}
+
+			++$i;
+		}
+
+		if (!strpos($email, '@')) {
+			$email .= '@softhouse.se';
+		}
+
+		echo $email;
+		die();
 	}
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
