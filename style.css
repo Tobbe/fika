@@ -80,6 +80,7 @@ form fieldset {
 	clear: left;
 	border: 1px solid #444;
 	background-color: #aaf;
+	padding: .4em .6em .7em .6em;
 }
 
 fieldset legend {

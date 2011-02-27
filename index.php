@@ -173,6 +173,16 @@
 				border-top: 1px solid #fff;
 			}
 
+			form fieldset {
+				position: relative;
+				padding-top: 1.3em;
+			}
+
+			fieldset legend {
+				position: absolute;
+				top: -.8em;
+				left: .1em;
+			}
 		</style>
 	<![endif]-->
 	<script type="text/javascript">
