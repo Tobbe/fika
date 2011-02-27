@@ -251,8 +251,8 @@
 <form method="POST" action="add.php">
 	<fieldset>
 		<legend>Add person to fika list</legend>
-		<label>Name: <input type="text" name="personname"></label>
-		<label>Full email or Softhouse acronym: <input type="text" name="acronym"></label>
+		<div><label for="personname">Name: </label><input type="text" name="personname"></div>
+		<div><label for="acronym">Full email or Softhouse acronym: </label><input type="text" name="acronym"></div>
 		<input type="submit" value="Add">
 	</fieldset>
 </form>
@@ -260,7 +260,7 @@
 <form method="POST" action="setdefault.php">
 	<fieldset>
 		<legend>Set default order of people</legend>
-		<p>Set the current order of people in the fika list as the default order.</p>
+		<div>Set the current order of people in the fika list as the default order.</div>
 		<input type="hidden" name="newOrder" value="<?php echo htmlentities(serialize($reorderedPersonList), ENT_QUOTES); ?>">
 		<input type="submit" value="Set default">
 	</fieldset>

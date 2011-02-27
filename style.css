@@ -40,11 +40,53 @@ table {
 
 form {
 	padding-top: 1em;
+	font-family: "arial", "tahoma", "verdana", sans-serif;
+	font-size: .9em;
 }
 
-form fieldset p, fieldset legend {
+form fieldset p {
 	padding: 0;
 	margin: 0;
+	margin-bottom: 10px;
+}
+
+form label {
+	font-size: 1em;
+	width: 16em;
+	display: block;
+	text-align: right;
+	float: left;
+}
+
+form div input {
+	margin-left: .5em;
+}
+
+form fieldset > input {
+	margin-top: 2px;
+	margin-left: 2px;
+}
+
+form div {
+	padding: 3px;
+	background: #ddf;
+	border: 2px solid white;
+	margin: 2px;
+}
+
+form fieldset {
+	margin-top: 20px;
+	float: left;
+	clear: left;
+	border: 1px solid #444;
+	background-color: #aaf;
+}
+
+fieldset legend {
+	border: 1px solid #444;
+	background-color: #ddf;
+	padding: 2px;
+	font-weight: bold;
 }
 
 tr.currentWeek {
