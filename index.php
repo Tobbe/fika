@@ -1,4 +1,5 @@
 <?php
+	session_cache_limiter('nocache');
 	include 'FikaDate.php';
 
 	$currentYear = date('Y');
@@ -144,6 +145,8 @@
 	<meta name="Author" content="Tobbe Lundberg">
 	<meta name="Robots" content="index,follow">
 	<meta name="Description" content="Draggable list items">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="-1">
 
 	<meta name="Keywords" content="list javascript jquery draggable">
 

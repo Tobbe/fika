@@ -10,5 +10,5 @@
 	}
 
 	header('HTTP/1.0 303 See Other');
-	header('Location: index.php');
+	header('Location: index.php?rnd=' . time());
 ?>
