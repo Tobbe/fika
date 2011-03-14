@@ -126,8 +126,8 @@
 			++$i;
 		}
 
-		if (!strpos($email, '@')) {
-			$email .= '@softhouse.se';
+		if (!strpos($email, '[kanelbulle]')) {
+			$email .= '[kanelbulle]softhouse.se';
 		}
 
 		echo $email;
