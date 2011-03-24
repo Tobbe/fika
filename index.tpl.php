@@ -109,7 +109,6 @@
 	<td>
 		<span class="name"><?php echo $person['name']; ?> (<?php echo $person['acronym']; ?>)</span>
 	</td>
-	<!--<td><a href="delete.php?acronym=<?php echo $person['acronym']; ?>"><img src="delete.gif" alt="Delete person" class="delete"></a></td>-->
 	<?php if ($index == 0): ?>
 	<td><span><img src="blank.gif" class="up"></span></td>
 	<?php else: ?>
