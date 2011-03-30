@@ -97,11 +97,27 @@
 
 		if ($tmp) {
 			if ($mod['where'] == 'up') {
-				$weekPersonMapping[$index]['person'] = $weekPersonMapping[$index - 1]['person'];
-				$weekPersonMapping[$index - 1]['person'] = $tmp;
+				if ($index == 0) {
+					$len = count($weekPersonMapping);
+					for ($i = 0; $i < $len - 1; $i++) {
+						$weekPersonMapping[$i]['person'] = $weekPersonMapping[$i + 1]['person'];
+					}
+					$weekPersonMapping[$len - 1]['person'] = $tmp;
+				} else {
+					$weekPersonMapping[$index]['person'] = $weekPersonMapping[$index - 1]['person'];
+					$weekPersonMapping[$index - 1]['person'] = $tmp;
+				}
 			} else {
-				$weekPersonMapping[$index]['person'] = $weekPersonMapping[$index + 1]['person'];
-				$weekPersonMapping[$index + 1]['person'] = $tmp;
+				$len = count($weekPersonMapping);
+				if ($index == $len - 1) {
+					for ($i = $len - 1; $i > 0; $i--) {
+						$weekPersonMapping[$i]['person'] = $weekPersonMapping[$i - 1]['person'];
+					}
+					$weekPersonMapping[0]['person'] = $tmp;
+				} else {
+					$weekPersonMapping[$index]['person'] = $weekPersonMapping[$index + 1]['person'];
+					$weekPersonMapping[$index + 1]['person'] = $tmp;
+				}
 			}
 		}
 	}

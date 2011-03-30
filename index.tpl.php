@@ -109,16 +109,8 @@
 	<td>
 		<span class="name"><?php echo $person['name']; ?> (<?php echo $person['acronym']; ?>)</span>
 	</td>
-	<?php if ($index == 0): ?>
-	<td><span><img src="blank.gif" class="up"></span></td>
-	<?php else: ?>
 	<td><a href="move.php?where=up&acronym=<?php echo $person['acronym']; ?>&year=<?php echo $date->year; ?>&week=<?php echo $date->week; ?>"><img src="up.gif" alt="Move up" class="up"></a></td>
-	<?php endif; ?>
-	<?php if ($index == count($weekPersonMapping) - 1): ?>
-	<td class="lastTD"><span class="lastSPAN"><img src="blank.gif" class="down"></span></td>
-	<?php else: ?>
 	<td class="lastTD"><a href="move.php?where=down&acronym=<?php echo $person['acronym']; ?>&year=<?php echo $date->year; ?>&week=<?php echo $date->week; ?>" class="lastA"><img src="down.gif" alt="Move down" class="down"></a></td>
-	<?php endif; ?>
 </tr>
 <?php endforeach; ?>
 </table>
