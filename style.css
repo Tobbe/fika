@@ -114,6 +114,7 @@ ul {
 	margin: 0;
 	clear: both;
 	float: left;
+	padding-bottom: 2em;
 }
 
 li {
@@ -184,6 +185,11 @@ a.movedown {
 
 a.moveup {
 	right: 18px;
+}
+
+a.delete {
+	top: 1px;
+	right: -26px;
 }
 
 ul a img {

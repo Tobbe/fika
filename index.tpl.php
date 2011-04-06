@@ -33,6 +33,10 @@
 			ul a {
 				top: 1px;
 			}
+
+			ul a.delete {
+				top: 2px;
+			}
 		</style>
 	<![endif]-->
 	<script type="text/javascript">
@@ -57,6 +61,8 @@
 	</td>
 </tr>
 <?php endif; ?>
+
+<?php $admin = isset($_GET['admin']); ?>
 
 <ul>
 <li class="header">
@@ -84,12 +90,35 @@
 			<span class="week"><?php echo $date->week; ?></span><span class="person"><?php echo $person['name']; ?> (<?php echo $person['acronym']; ?>)</span>
 			<a href="move.php?where=up&acronym=<?php echo $person['acronym']; ?>&year=<?php echo $date->year; ?>&week=<?php echo $date->week; ?>" class="moveup"><img src="up.gif"></a>
 			<a href="move.php?where=down&acronym=<?php echo $person['acronym']; ?>&year=<?php echo $date->year; ?>&week=<?php echo $date->week; ?>" class="movedown"><img src="down.gif"></a>
+			<?php if ($admin): ?>
+				<a href="delete.php?acronym=<?php echo $person['acronym']; ?>" class="delete"><img src="delete.gif"></a>
+			<?php endif; ?>
 		</div>
 	</div>
 </li>
 
 <?php endforeach; ?>
 </ul>
+
+<?php if ($admin): ?>
+<form method="POST" action="add.php">
+	<fieldset>
+		<legend>Add person to fika list</legend>
+		<div><label for="personname">Name: </label><input type="text" name="personname"></div>
+		<div><label for="acronym">Full email or Softhouse acronym: </label><input type="text" name="acronym"></div>
+		<input type="submit" value="Add">
+	</fieldset>
+</form>
+
+<form method="POST" action="setdefault.php">
+	<fieldset>
+		<legend>Set default order of people</legend>
+		<div>Set the current order of people in the fika list as the default order.</div>
+		<input type="hidden" name="newOrder" value="<?php echo htmlentities(serialize($reorderedPersonList), ENT_QUOTES); ?>">
+		<input type="submit" value="Set default">
+	</fieldset>
+</form>
+<?php endif; ?>
 
 <a href="http://github.com/tobbe/fika" class="githubribbon"><img src="https://assets1.github.com/img/30f550e0d38ceb6ef5b81500c64d970b7fb0f028?repo=&url=http%3A%2F%2Fs3.amazonaws.com%2Fgithub%2Fribbons%2Fforkme_right_orange_ff7600.png&path=" alt="Fork me on GitHub"></a>
 

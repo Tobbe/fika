@@ -152,9 +152,5 @@
 
 	$reorderedPersonList = array_map(function ($e) { return $e['person']; }, $weekPersonMapping);
 
-	if (isset($_GET['admin'])) {
-		include 'index_admin.tpl.php';
-	} else {
-		include 'index.tpl.php';
-	}
+	include 'index.tpl.php';
 ?>
