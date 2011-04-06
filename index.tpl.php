@@ -19,25 +19,6 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" type="text/javascript"></script>
 	<!--[if lte IE 7]>
 		<style>
-			/* Hack to make IE behave as if "border-collapse: separate; 
-			   border-spacing: 0;" is set */
-			table {
-				border-collapse: collapse;
-			}
-
-			td {
-				position: relative;
-			}
-
-			/* Vertical center */
-			tr.currentWeek img {
-				margin-bottom: 1px;
-			}
-
-			tr.nextFika td span {
-				border-top: 1px solid #fff;
-			}
-
 			form fieldset {
 				position: relative;
 				padding-top: 1.3em;
@@ -47,6 +28,10 @@
 				position: absolute;
 				top: -.8em;
 				left: .1em;
+			}
+
+			ul a {
+				top: 1px;
 			}
 		</style>
 	<![endif]-->
@@ -59,21 +44,6 @@
 	<h1>Fika list</h1>
 	<img src="lemonpie.jpg" alt="Lemon Pie">
 </div>
-<table>
-<tr>
-	<th></th>
-	<th></th>
-	<th>Week</th>
-	<th>Person</th>
-	<th></th>
-	<th></th>
-	<th></th>
-</tr>
-<?php foreach($weekPersonMapping as $index => $datePerson): ?>
-<?php $date = $datePerson['date']; ?>
-<?php $person = $datePerson['person']; ?>
-<?php $currentWeek = FikaDate::fromString('now'); ?>
-<?php $nextWeek = FikaDate::fromString('+1 week'); ?>
 
 <?php if ($date->isFirstWeekInYear()): ?>
 <tr class="mark">	
@@ -88,32 +58,38 @@
 </tr>
 <?php endif; ?>
 
-<?php if ($date == $currentWeek): ?>
-<tr class="currentWeek <?php if (date('N') < 4): ?>nextFika<?php endif; ?>">
-	<td class="currentWeek"><img src="calendar.gif" alt="Current Week"></td>
-	<?php if (date('N') < 4): ?>
-		<td class="nextFika"><img src="cupcake.png" alt="Next person to have fika"></td>
-	<?php else: ?>
-		<td class="empty"><span>&nbsp;</span></td>
-	<?php endif; ?>
-<?php elseif ($date == $nextWeek && date('N') >= 4): ?>
-<tr class="nextFika">
-	<td class="nomark">&nbsp;</td>
-	<td class="nextFika"><img src="cupcake.png" alt="Next person to have fika"></td>
-<?php else: ?>
-<tr>
-	<td>&nbsp;</td>
-	<td>&nbsp;</td>
-<?php endif; ?>
-	<td><span class="week"><?php echo $date->week; ?></span></td>
-	<td>
-		<span class="name"><?php echo $person['name']; ?> (<?php echo $person['acronym']; ?>)</span>
-	</td>
-	<td><a href="move.php?where=up&acronym=<?php echo $person['acronym']; ?>&year=<?php echo $date->year; ?>&week=<?php echo $date->week; ?>"><img src="up.gif" alt="Move up" class="up"></a></td>
-	<td class="lastTD"><a href="move.php?where=down&acronym=<?php echo $person['acronym']; ?>&year=<?php echo $date->year; ?>&week=<?php echo $date->week; ?>" class="lastA"><img src="down.gif" alt="Move down" class="down"></a></td>
-</tr>
+<ul>
+<li class="header">
+	<div class="currentWeekDiv">
+		<div class="fikaWeekDiv">
+			<span class="week">Week</span><span class="person">Person</span>
+		</div>
+	</div>
+</li>
+<?php foreach($weekPersonMapping as $index => $datePerson): ?>
+<?php $date = $datePerson['date']; ?>
+<?php $person = $datePerson['person']; ?>
+<?php $currentWeek = FikaDate::fromString('now'); ?>
+<?php $nextWeek = FikaDate::fromString('+1 week'); ?>
+<?php $isCurrentWeek = ($date == $currentWeek); ?>
+<?php $isFikaWeek = (($date == $currentWeek && date('N') < 4) || ($date == $nextWeek && date('N') >= 4)); ?>
+
+<li>
+	<div class="currentWeekDiv<?php if ($isCurrentWeek):?> current<?php endif; ?>">
+		<?php if ($isCurrentWeek): ?><img src="calendar.gif" alt="Current Week" class="currentWeek<?php if ($isFikaWeek):?> andFikaWeek<?php endif; ?>"><?php endif; ?><!-- Comment needed for IE7 :(
+		--><div class="fikaWeekDiv<?php if ($isFikaWeek): ?> next<?php endif; ?>">
+			<?php if ($isFikaWeek): ?>
+				<img src="cupcake.png" alt="Next person to have fika" class="nextFika">
+			<?php endif; ?>
+			<span class="week"><?php echo $date->week; ?></span><span class="person"><?php echo $person['name']; ?> (<?php echo $person['acronym']; ?>)</span>
+			<a href="move.php?where=up&acronym=<?php echo $person['acronym']; ?>&year=<?php echo $date->year; ?>&week=<?php echo $date->week; ?>" class="moveup"><img src="up.gif"></a>
+			<a href="move.php?where=down&acronym=<?php echo $person['acronym']; ?>&year=<?php echo $date->year; ?>&week=<?php echo $date->week; ?>" class="movedown"><img src="down.gif"></a>
+		</div>
+	</div>
+</li>
+
 <?php endforeach; ?>
-</table>
+</ul>
 
 <a href="http://github.com/tobbe/fika" class="githubribbon"><img src="https://assets1.github.com/img/30f550e0d38ceb6ef5b81500c64d970b7fb0f028?repo=&url=http%3A%2F%2Fs3.amazonaws.com%2Fgithub%2Fribbons%2Fforkme_right_orange_ff7600.png&path=" alt="Fork me on GitHub"></a>
 
